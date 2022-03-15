@@ -1,0 +1,39 @@
+<div class="container custom-container-2">
+  
+    <!-- Show it when there is no employee -->
+  
+    <!-- CUstomer list table -->
+    <div *ngIf="Customers.length !== 0">
+      <h3 class="mb-3 text-center">Customer List</h3>
+  
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">User Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Website</th>
+              <th scope="col">Detail</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of Customers">
+              <td>{{customer.id}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.email}}</td>
+              <td>{{customer.phone}}</td>
+              <td>{{customer.website}}</td>
+              <td><a [routerLink]="['/customerdetail', customer.id]" href='' (click)="getcustomerdetails(customer.id)">Detail</a></td>
+            {{this.details}}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>
+
