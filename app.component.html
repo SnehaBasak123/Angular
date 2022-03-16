@@ -1,0 +1,96 @@
+<!-- <app-new-cmp></app-new-cmp>
+<app-login></app-login> -->
+<p appActive>Active !!</p>
+<h1>Custom Pipe</h1>
+<b>Square root of 25 is: {{25 | sqrt}}</b><br/>
+<b>Square root of 729 is: {{729 | sqrt}}</b>
+
+<br />
+<br />
+<br />
+<a routerLink = "new-cmp">New component</a>
+<br>
+<a routerLink = "customerlist">CustomerList component</a>
+<br />
+<a routerLink = "customerdetail">CustomerDetail component</a>
+<br/>
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <!-- <h1>
+      Welcome to {{ title }}!
+    </h1>
+   -->
+  </div>
+  <!-- <div class="container custom-container-2">
+  
+    <div *ngIf="Customers.length !== 0">
+      <h3 class="mb-3 text-center">Customer List</h3>
+  
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">User Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Website</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of Customers">
+              <td>{{customer.id}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.email}}</td>
+              <td>{{customer.phone}}</td>
+              <td>{{customer.website}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div> -->
+  <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" >
+    <input type = "text" name = "emailid" placeholder = "emailid" ngModel>
+    <br/>
+    <input type = "password" name = "passwd" placeholder = "passwd" ngModel>
+    <br/>
+    <input type = "submit" value = "submit">
+ </form>
+ <div>
+  <form [formGroup]="formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+     <input type="text" class="fortextbox" name="emailid" placeholder="emailid" 
+        formControlName="emailid">
+     <br/>
+     
+     <input type="password" class="fortextbox" name="passwd" 
+        placeholder="passwd" formControlName="passwd">
+     <br/>
+     
+     <input type="submit" class="forsubmit" value="Log In">
+  </form>
+</div>
+<p>
+  Email entered is : {{emailid}}
+</p>
+<div>
+  <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+     <input type = "text" class = "fortextbox" name = "emailid" placeholder = "emailid" 
+        formControlName = "emailid">
+     <br/>
+     <input type = "password" class = "fortextbox" name = "passwd" 
+        placeholder = "passwd" formControlName = "passwd">
+     <br/>
+     <input type = "submit" [disabled] = "!formdata.valid" class = "forsubmit" 
+        value = "Log In">
+  </form>
+</div>
+
+<p>
+  Email entered is : {{emailid}}
+</p>
+<app-sibling></app-sibling>
+<router-outlet></router-outlet>
